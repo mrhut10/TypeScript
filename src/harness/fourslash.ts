@@ -936,7 +936,7 @@ namespace FourSlash {
                 // assert.equal(actualDetails.kind, actual.kind);
                 assert.equal(actualDetails.kindModifiers, actual.kindModifiers);
                 assert.equal(actualDetails.source && ts.displayPartsToString(actualDetails.source), sourceDisplay);
-                assert.deepEqual<ReadonlyArray<ts.JSDocTagInfo> | undefined>(actualDetails.tags, tags || []); //!
+                assert.deepEqual<ReadonlyArray<ts.JSDocTagInfo> | undefined>(actualDetails.tags || [], tags || []); //!
             }
             else {
                 assert(documentation === undefined && tags === undefined && sourceDisplay === undefined, "If specifying completion details, should specify 'text'");
@@ -956,7 +956,6 @@ namespace FourSlash {
             });
         }
 
-        //kill
         public verifyCompletionsAt(markerName: string | ReadonlyArray<string>, expected: ReadonlyArray<FourSlashInterface.ExpectedCompletionEntry>, options?: FourSlashInterface.CompletionsAtOptions) {
             this.verifyCompletions({
                 marker: markerName,
