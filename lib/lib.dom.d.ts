@@ -4398,6 +4398,10 @@ interface Document extends Node, NonElementParentNode, DocumentOrShadowRoot, Par
      * Gets a value indicating whether the object currently has focus.
      */
     hasFocus(): boolean;
+    image():HTMLImageElement;
+    image(width:number): HTMLImageElement;
+    image(width:number, height:number): HTMLImageElement;
+
     importNode<T extends Node>(importedNode: T, deep: boolean): T;
     /**
      * Opens a new window and loads a document specified by a given URL. Also, opens a new window that uses the url parameter and the name parameter to collect the output of the write method and the writeln method.
